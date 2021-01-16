@@ -21,3 +21,5 @@ your_video_name.mp4 <=> kubecon.mp4
 $ docker build -t tuong .
 $ docker run -d -v /home/dcn/media://opt/vlc-media --name vlc -p 8554:8554 tuong kubecon.mp4 --loop :sout=#gather:rtp{sdp=rtsp://:8554/} :network-caching=1500 :sout-all :sout-keep
 ```
+### Open vlc
+Install vlc in your PC and connect to rstp://your_server_ip:8554
