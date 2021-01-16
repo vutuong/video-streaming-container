@@ -9,10 +9,9 @@ RUN apk update && \
     rm -rf /var/cache/apk/* && \
     mkdir -p /opt/vlc-media && \
     addgroup --g "${GID}" -S vlc && \
-    adduser -h /opt/vlc-media -s /bin/sh -u "${UID}" -G vlc -S vlc && \
-    cd /opt/vlc-media && \
-    wget http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4 && \
-    chown vlc:vlc -R /opt/vlc-media
+    adduser -h /opt/vlc-media -s /bin/sh -u "${UID}" -G vlc -S vlc
+COPY /video/frozen.mp4 /opt/vlc-media
+RUN chown vlc:vlc -R /opt/vlc-media
 
 EXPOSE 8080
 EXPOSE 554
